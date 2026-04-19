@@ -1,0 +1,120 @@
+---
+const photos = [
+  { label: 'Retreat · 3:4' },
+  { label: 'Summit' },
+  { label: 'Field Day' },
+  { label: 'Bootcamp' },
+  { label: 'Championship · Wide' },
+  { label: 'Cookout' },
+  { label: 'Team' },
+  { label: 'Celebration' },
+];
+---
+
+<section class="off-clock" id="off-clock">
+  <div class="container">
+    <div class="section-label">08 / Off the Clock</div>
+    <h2 class="section-headline">The part nobody<br /><span class="blue">posts about.</span></h2>
+    <p class="section-intro">Retreats. Quarterly summits. Top-producer trips. Field-day cookouts. Bootcamps in Muskoka. The reason people stay after the first promotion isn't on the comp plan — it's the people next to them.</p>
+
+    <div class="off-clock-mosaic">
+      {photos.map((photo, i) => (
+        <div class="mosaic-item" data-index={i + 1}>
+          <div class="mosaic-placeholder">{photo.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="off-clock-caption">Retreats · Summits · Championships · Field Days</div>
+  </div>
+</section>
+
+<style>
+  .off-clock {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .off-clock :global(.section-label) { color: var(--blue); }
+  .off-clock :global(.section-headline) { color: var(--white); }
+  .off-clock :global(.section-intro) { color: rgba(255,255,255,0.65); }
+
+  .off-clock-mosaic {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 180px);
+    gap: 6px;
+    margin-bottom: 32px;
+  }
+  .mosaic-item {
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .mosaic-item:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+    z-index: 2;
+  }
+  .mosaic-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .mosaic-item:nth-child(1) { grid-row: span 2; }
+  .mosaic-item:nth-child(5) { grid-column: span 2; }
+
+  .mosaic-item:nth-child(1) .mosaic-placeholder { background: linear-gradient(180deg, rgba(56,182,255,0.35), rgba(10,58,92,0.8)); }
+  .mosaic-item:nth-child(2) .mosaic-placeholder { background: linear-gradient(135deg, rgba(56,182,255,0.25), rgba(26,143,212,0.5)); }
+  .mosaic-item:nth-child(3) .mosaic-placeholder { background: linear-gradient(225deg, rgba(56,182,255,0.30), rgba(10,58,92,0.6)); }
+  .mosaic-item:nth-child(4) .mosaic-placeholder { background: linear-gradient(45deg, rgba(26,143,212,0.3), rgba(56,182,255,0.5)); }
+  .mosaic-item:nth-child(5) .mosaic-placeholder { background: linear-gradient(90deg, rgba(56,182,255,0.20), rgba(10,58,92,0.5)); }
+  .mosaic-item:nth-child(6) .mosaic-placeholder { background: linear-gradient(180deg, rgba(10,58,92,0.4), rgba(56,182,255,0.35)); }
+  .mosaic-item:nth-child(7) .mosaic-placeholder { background: linear-gradient(135deg, rgba(56,182,255,0.40), rgba(26,143,212,0.2)); }
+  .mosaic-item:nth-child(8) .mosaic-placeholder { background: linear-gradient(315deg, rgba(26,143,212,0.35), rgba(56,182,255,0.55)); }
+
+  .off-clock-caption {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.35);
+    padding-top: 8px;
+  }
+
+  @media (max-width: 1024px) {
+    .off-clock-mosaic {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+    }
+    .mosaic-item:nth-child(1) { grid-row: span 2; }
+    .mosaic-item:nth-child(5) { grid-column: span 2; }
+  }
+  @media (max-width: 640px) {
+    .off-clock-mosaic {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(8, 160px);
+    }
+    .mosaic-item:nth-child(1) { grid-row: span 1; }
+    .mosaic-item:nth-child(5) { grid-column: span 1; }
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('lightbox') as HTMLDialogElement | null;
+  if (lightbox) {
+    document.querySelectorAll('.mosaic-item').forEach((item) => {
+      item.addEventListener('click', () => lightbox.showModal());
+    });
+  }
+</script>

@@ -1,0 +1,117 @@
+---
+const voices = [
+  {
+    stat: 'Promoted in 5 mo',
+    quote: 'First week I wanted to quit. Trainer sat me in the car for two hours breaking down what I did wrong on every knock. Nobody had ever looked at my work that closely before. Changed everything.',
+    initials: 'DM',
+    name: 'Derek M.',
+    role: 'Field Lead · Vaughan',
+  },
+  {
+    stat: 'Cleared student debt',
+    quote: 'I came from retail. Altera was the first place that handed me a system on day one instead of telling me to "figure it out." The script works. The territory routing works. My bank account works.',
+    initials: 'JT',
+    name: 'Jaz T.',
+    role: 'Senior Rep · Hamilton',
+  },
+  {
+    stat: 'Running her own crew',
+    quote: "What I didn't expect: how much thought went into the back-end. There's a whole CRM, dispatch system, call center behind me. I'm not just a rep — I'm part of an operation.",
+    initials: 'AK',
+    name: 'Amira K.',
+    role: 'Field Lead · Markham',
+  },
+];
+---
+
+<section class="voices" id="voices">
+  <div class="container">
+    <div class="section-label">07 / The Voices</div>
+    <h2 class="section-headline">Straight from the<br /><span class="blue">operators.</span></h2>
+    <p class="section-intro">Not testimonials. Field reports.</p>
+
+    <div class="voice-grid">
+      {voices.map((v) => (
+        <div class="voice-card">
+          <div class="voice-stat">{v.stat}</div>
+          <p class="voice-quote">{v.quote}</p>
+          <div class="voice-meta">
+            <div class="voice-avatar">{v.initials}</div>
+            <div>
+              <div class="voice-name">{v.name}</div>
+              <div class="voice-role">{v.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .voices { background: var(--gray-100); }
+  .voice-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 48px;
+  }
+  .voice-card {
+    background: var(--white);
+    padding: 36px 32px;
+    border: 1px solid var(--gray-300);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .voice-card:nth-child(2) { transform: translateY(24px); background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .voice-card:nth-child(2) .voice-role { color: rgba(255,255,255,0.6); }
+  .voice-card:nth-child(2) .voice-name { color: var(--blue); }
+  .voice-card:nth-child(2) .voice-quote::before { color: var(--blue); }
+  .voice-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .voice-card:nth-child(2):hover { transform: translateY(18px); }
+  .voice-quote {
+    font-size: 18px; line-height: 1.5;
+    font-weight: 500;
+    margin-bottom: 28px;
+    position: relative;
+    padding-top: 20px;
+  }
+  .voice-quote::before {
+    content: "\201C"; position: absolute;
+    top: -30px; left: -6px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 80px; line-height: 1;
+    color: var(--blue);
+  }
+  .voice-meta { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); }
+  .voice-card:nth-child(2) .voice-meta { border-top-color: rgba(255,255,255,0.15); }
+  .voice-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--ink); font-size: 16px;
+  }
+  .voice-name {
+    font-family: 'Archivo Black', sans-serif; font-size: 16px;
+    text-transform: uppercase; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .voice-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--gray-500);
+  }
+  .voice-stat {
+    position: absolute; top: -12px; right: 20px;
+    background: var(--accent-lime); color: var(--ink);
+    padding: 4px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 1024px) {
+    .voice-grid { grid-template-columns: 1fr; }
+    .voice-card:nth-child(2) { transform: none; }
+    .voice-card:nth-child(2):hover { transform: translateY(-6px); }
+  }
+</style>

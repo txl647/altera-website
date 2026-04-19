@@ -1,0 +1,197 @@
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-tilt"></div>
+  <div class="hero-tilt-2"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="pulse"></span>
+        Now recruiting · 6 Ontario territories
+      </div>
+      <h1>
+        We don't<br />
+        <span class="strike">hire reps.</span><br />
+        We build <span class="highlight">operators.</span>
+      </h1>
+      <p class="hero-sub">
+        Altera is Ontario's operator-first field sales organization. Home energy upgrades, heat pumps, uncapped earning — but what you actually get paid in is leverage. Systems, scripts, structure, and a seat at the table when you prove out.
+      </p>
+      <div class="hero-actions">
+        <a href="#apply" class="btn-primary">
+          Start the Application <span class="arrow">→</span>
+        </a>
+        <a href="#system" class="btn-secondary">How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Ontario Territories</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">90d</div>
+          <div class="stat-label">Operator Build Plan</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">$0</div>
+          <div class="stat-label">Cap on Commission</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="card-eyebrow">/ Week 01 Check-in</div>
+      <h3>The Field<br />Report</h3>
+      <p>What your first 30 days at Altera actually look like — not a pitch deck, a calendar.</p>
+      <div class="hero-card-rows">
+        <div class="card-row"><span>Onboarding</span><span>3 Days</span></div>
+        <div class="card-row"><span>Field shadow</span><span>Week 1</span></div>
+        <div class="card-row"><span>First solo knock</span><span>Day 10</span></div>
+        <div class="card-row"><span>Trainer 1:1 cadence</span><span>Daily</span></div>
+        <div class="card-row"><span>Leadership track eligibility</span><span class="check">✓ Day 90</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    padding: 140px 40px 80px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 85% 40%, rgba(56,182,255,0.25), transparent 55%),
+      linear-gradient(180deg, #0B0E14 0%, #111318 100%);
+  }
+  .hero-tilt {
+    position: absolute; top: 0; right: -5%;
+    width: 55%; height: 100%;
+    background: var(--blue);
+    transform: skewX(-12deg);
+    transform-origin: top right;
+    opacity: 0.95;
+    z-index: 1;
+  }
+  .hero-tilt-2 {
+    position: absolute; top: 0; right: -10%;
+    width: 38%; height: 100%;
+    background: var(--accent-orange);
+    transform: skewX(-12deg);
+    transform-origin: top right;
+    z-index: 2;
+    mix-blend-mode: multiply;
+    opacity: 0.75;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 5;
+    max-width: 1400px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    margin-bottom: 28px;
+    color: rgba(255,255,255,0.9);
+  }
+  .hero h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(56px, 9vw, 132px);
+    line-height: 0.88;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .hero h1 .highlight { color: var(--blue); display: inline-block; position: relative; }
+  .hero h1 .strike { position: relative; display: inline-block; color: rgba(255,255,255,0.25); }
+  .hero h1 .strike::after {
+    content: ""; position: absolute; left: -4%; right: -4%; top: 48%;
+    height: 8px; background: var(--accent-orange);
+    transform: rotate(-2deg);
+  }
+  .hero-sub {
+    font-size: 18px; line-height: 1.55; max-width: 520px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px; font-weight: 400;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; max-width: 680px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 28px;
+  }
+
+  .hero-card {
+    position: relative; z-index: 5;
+    background: var(--white);
+    color: var(--ink);
+    padding: 40px 36px;
+    transform: rotate(2deg);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(0,0,0,0.05);
+    border-radius: 4px;
+  }
+  .hero-card::before {
+    content: ""; position: absolute;
+    top: -14px; left: 28px;
+    background: var(--accent-lime);
+    color: var(--ink);
+    padding: 4px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .hero-card .card-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--blue-dark);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 14px; font-weight: 700;
+  }
+  .hero-card h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 28px; line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-card p { color: var(--gray-500); font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+  .hero-card-rows { border-top: 1px solid var(--gray-300); padding-top: 16px; }
+  .card-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px dashed var(--gray-300);
+    font-size: 13px;
+  }
+  .card-row:last-child { border-bottom: none; }
+  .card-row span:first-child { color: var(--gray-500); }
+  .card-row span:last-child { font-weight: 700; color: var(--ink); font-family: 'JetBrains Mono', monospace; }
+  .card-row .check { color: #19A572; font-weight: 900; }
+
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { transform: rotate(0); max-width: 520px; }
+    .hero-tilt, .hero-tilt-2 { display: none; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 120px 20px 60px; }
+    .hero-stats { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>

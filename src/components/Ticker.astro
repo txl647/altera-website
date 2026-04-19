@@ -1,0 +1,52 @@
+---
+const territories = ['Vaughan', 'Hamilton', 'London', 'Barrie', 'Oshawa', 'Markham'];
+const repeated = [...territories, ...territories];
+---
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>
+      {repeated.map((t) => (
+        <>
+          {t} <span class="ticker-dot"></span>
+        </>
+      ))}
+    </span>
+    <span>
+      {repeated.map((t) => (
+        <>
+          {t} <span class="ticker-dot"></span>
+        </>
+      ))}
+    </span>
+  </div>
+</div>
+
+<style>
+  .ticker {
+    background: var(--blue);
+    color: var(--ink);
+    padding: 18px 0;
+    overflow: hidden;
+    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+  }
+  .ticker-track {
+    display: flex; gap: 48px;
+    animation: scroll 30s linear infinite;
+    white-space: nowrap;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .ticker-track span { display: inline-flex; align-items: center; gap: 48px; }
+  .ticker-dot {
+    width: 10px; height: 10px; background: var(--ink); border-radius: 50%;
+    display: inline-block;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>

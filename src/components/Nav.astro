@@ -1,0 +1,61 @@
+---
+import { navLogo } from '../lib/logo';
+---
+
+<nav class="nav" id="nav">
+  <a href="#" class="logo" aria-label="Altera Acquisition Group">
+    <img src={navLogo} alt="Altera" />
+  </a>
+  <div class="nav-links">
+    <a href="#system">The System</a>
+    <a href="#path">The Path</a>
+    <a href="#territories">Territories</a>
+    <a href="#voices">Voices</a>
+    <a href="#apply" class="nav-cta">Apply Now →</a>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+  .nav.scrolled { padding: 12px 40px; }
+
+  .logo { display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s ease; }
+  .logo:hover { opacity: 0.8; }
+  .logo img { height: 38px; width: auto; display: block; }
+
+  .nav-links { display: flex; gap: 40px; align-items: center; }
+  .nav-links a {
+    color: var(--ink); text-decoration: none; font-weight: 600; font-size: 13px;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 2px; background: var(--blue); transform: scaleX(0);
+    transform-origin: left; transition: transform 0.3s ease;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta {
+    background: var(--ink); color: var(--white);
+    padding: 12px 22px; border-radius: 999px;
+    font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    border: 2px solid var(--ink);
+  }
+  .nav-cta:hover { background: var(--blue); border-color: var(--blue); transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  @media (max-width: 640px) {
+    .nav { padding: 14px 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+</style>

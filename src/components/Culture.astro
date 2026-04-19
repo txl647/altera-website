@@ -1,0 +1,85 @@
+---
+const yes = [
+  "You'd rather be coached hard than coached nicely.",
+  'You want a career ladder, not a side hustle.',
+  "You're okay being uncomfortable for 90 days if the output is leverage.",
+  'You read, watch, and listen to things that sharpen you.',
+];
+const no = [
+  "You're \"exploring options\" and want a safe salary.",
+  'You want to be rich without being watched.',
+];
+---
+
+<section class="culture">
+  <div class="container">
+    <div class="culture-grid">
+      <div>
+        <div class="section-label">05 / Who Joins</div>
+        <h2 class="culture-headline">
+          You don't need<br />experience.<br />
+          You need the <em>wiring.</em>
+        </h2>
+        <p class="section-intro" style="margin-top: 24px;">Our best operators came in green. What we can't teach is the thing that made them show up. Here's the honest filter.</p>
+      </div>
+      <ul class="checklist">
+        {yes.map((item) => (
+          <li class="check-row">
+            <span class="check-mark">✓</span>
+            <span class="check-text">{item}</span>
+          </li>
+        ))}
+        {no.map((item) => (
+          <li class="check-row no">
+            <span class="check-mark">✕</span>
+            <span class="check-text">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .culture { background: var(--white); padding-bottom: 60px; }
+  .culture-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .culture-headline {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(44px, 5.5vw, 80px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  .culture-headline em {
+    font-style: normal; color: var(--blue);
+    position: relative; display: inline-block;
+  }
+  .culture-headline em::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 4px;
+    height: 10px; background: var(--accent-lime);
+    z-index: -1;
+  }
+  .checklist { list-style: none; }
+  .check-row {
+    padding: 22px 0; border-bottom: 1px solid var(--gray-300);
+    display: grid; grid-template-columns: auto 1fr; gap: 20px;
+    align-items: center;
+  }
+  .check-row:last-child { border-bottom: none; }
+  .check-mark {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--ink); color: var(--blue);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 18px;
+  }
+  .check-row.no .check-mark { background: var(--gray-100); color: var(--accent-orange); border: 2px solid var(--accent-orange); }
+  .check-text { font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .check-row.no .check-text { color: var(--gray-500); text-decoration: line-through; text-decoration-color: var(--accent-orange); }
+
+  @media (max-width: 1024px) {
+    .culture-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>

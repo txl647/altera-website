@@ -1,0 +1,86 @@
+<section class="system" id="system">
+  <div class="container">
+    <div class="section-label">01 / The Wedge</div>
+    <h2 class="section-headline">Most D2D shops sell you<br /><span class="blue">a grind.</span> We sell you<br />a system.</h2>
+    <p class="section-intro">Everyone else gives you a lanyard and a shelf-life. You'll hustle, you'll burn out, you'll leave. Altera was built the other way around — by operators, for operators. A real pipeline into leadership, real equity conversations at the top, real tooling underneath you.</p>
+
+    <div class="system-split">
+      <div class="system-col left">
+        <span class="tag">Everyone Else</span>
+        <h3>The Grind Model</h3>
+        <ul class="system-list">
+          <li><span class="icon">✕</span> "Just knock more doors" is the whole strategy</li>
+          <li><span class="icon">✕</span> Trainer is whoever's standing next to you</li>
+          <li><span class="icon">✕</span> Comp plan designed so you never see the top of it</li>
+          <li><span class="icon">✕</span> Territory changes every Monday</li>
+          <li><span class="icon">✕</span> Leadership path exists in theory, not in the org chart</li>
+          <li><span class="icon">✕</span> Six months in, you're still a rep</li>
+        </ul>
+      </div>
+      <div class="system-col right">
+        <span class="tag">Altera</span>
+        <h3>The System Model</h3>
+        <ul class="system-list">
+          <li><span class="icon">✓</span> Scripted openers + objection map you actually get trained on</li>
+          <li><span class="icon">✓</span> Dedicated field trainer in every territory, from day 1</li>
+          <li><span class="icon">✓</span> Structured comp ladder — you can see the next rung</li>
+          <li><span class="icon">✓</span> Protected territory, protected routing, protected pipeline</li>
+          <li><span class="icon">✓</span> Three-gate promotion system: Rep → Lead → Manager → Owner</li>
+          <li><span class="icon">✓</span> Equity conversations on the table for the right operators</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .system { background: var(--gray-100); position: relative; }
+  .system-split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 3px solid var(--ink);
+    background: var(--white);
+    margin-top: 40px;
+  }
+  .system-col { padding: 50px 44px; position: relative; }
+  .system-col.left { border-right: 3px solid var(--ink); background: var(--gray-100); }
+  .system-col.right { background: var(--ink); color: var(--white); }
+  .system-col .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 6px 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .system-col.left .tag { background: var(--ink); color: var(--accent-orange); }
+  .system-col.right .tag { background: var(--blue); color: var(--ink); }
+  .system-col h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 34px; line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .system-list { list-style: none; }
+  .system-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 15px; line-height: 1.5;
+  }
+  .system-col.right .system-list li { border-bottom-color: rgba(255,255,255,0.12); }
+  .system-list li .icon {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 14px;
+    border-radius: 50%;
+  }
+  .system-col.left .icon { background: var(--accent-orange); color: var(--white); }
+  .system-col.right .icon { background: var(--accent-lime); color: var(--ink); }
+  .system-col.left li { color: var(--gray-500); }
+
+  @media (max-width: 1024px) {
+    .system-split { grid-template-columns: 1fr; }
+    .system-col.left { border-right: none; border-bottom: 3px solid var(--ink); }
+  }
+</style>

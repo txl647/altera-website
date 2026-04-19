@@ -1,0 +1,180 @@
+---
+const layers = [
+  {
+    num: '01',
+    name: 'CRM + Pipeline',
+    desc: 'Every lead, every touchpoint, every status — owned by you, visible to your trainer.',
+    detail: 'Centralized contact records. Pipeline stages. Activity logging. Manager dashboards.',
+  },
+  {
+    num: '02',
+    name: 'Dispatch + Install',
+    desc: "When you close, the install books itself. You don't chase paperwork.",
+    detail: 'Same-day install booking. Permitting handoff. Customer comms.',
+  },
+  {
+    num: '03',
+    name: 'Inbound Call Center',
+    desc: 'Homeowners call us. Those calls route to operators in their territory.',
+    detail: 'Marketing-driven inbound. Territory-aware routing. SLA targets.',
+  },
+  {
+    num: '04',
+    name: 'Routing & Mapping',
+    desc: "Your day's route is built before your day starts.",
+    detail: 'Heat-mapped territory. Route optimization. Door-knock history per address.',
+  },
+  {
+    num: '05',
+    name: 'Script Bank + Objection Map',
+    desc: 'Tested openers, tested closes, tested objection handles. Updated weekly.',
+    detail: 'Living script library. Objection tree. Roleplay recordings.',
+  },
+  {
+    num: '06',
+    name: 'Training Library',
+    desc: 'Every gate has a curriculum. Every promotion has a syllabus.',
+    detail: 'Onboarding tracks. Tier-specific modules. Video library. Live cohort sessions.',
+  },
+];
+---
+
+<section class="stack" id="stack">
+  <div class="container">
+    <div class="section-label">02 / The Stack</div>
+    <h2 class="section-headline">Six layers.<br />One operator.<br /><span class="blue">No guesswork.</span></h2>
+    <p class="section-intro">Most D2D shops hand you a clipboard and a territory. Altera hands you an operating system. Six layers of infrastructure run underneath every operator, every day. You're never carrying the company on your back — you're plugging into it.</p>
+
+    <div class="stack-layers">
+      <div class="stack-foundation">— Foundation —</div>
+      {layers.map((layer) => (
+        <details class="stack-layer">
+          <summary>
+            <span class="stack-layer-num">{layer.num}</span>
+            <span class="stack-layer-name">{layer.name}</span>
+            <span class="stack-layer-desc">{layer.desc}</span>
+            <span class="stack-layer-toggle">+</span>
+          </summary>
+          <div class="stack-layer-detail">{layer.detail}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .stack::before {
+    content: ""; position: absolute; bottom: -80px; left: -80px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.10;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .stack :global(.section-label) { color: var(--blue); }
+  .stack :global(.section-headline) { color: var(--white); }
+  .stack :global(.section-intro) { color: rgba(255,255,255,0.65); }
+
+  .stack-layers {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stack-foundation {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.35);
+    padding: 12px 0 4px;
+  }
+
+  .stack-layer {
+    border: none;
+    border-radius: 4px;
+    padding: 0;
+    transition: transform 0.2s ease;
+  }
+  .stack-layer:hover { transform: translateX(4px); }
+  .stack-layer[open] { transform: translateX(4px); }
+
+  .stack-layer:nth-of-type(1) { background: rgba(56,182,255,0.10); }
+  .stack-layer:nth-of-type(2) { background: rgba(56,182,255,0.25); }
+  .stack-layer:nth-of-type(3) { background: rgba(56,182,255,0.40); }
+  .stack-layer:nth-of-type(4) { background: rgba(56,182,255,0.55); }
+  .stack-layer:nth-of-type(5) { background: rgba(56,182,255,0.75); }
+  .stack-layer:nth-of-type(6) { background: rgba(56,182,255,1.0); }
+
+  .stack-layer:nth-of-type(5) summary,
+  .stack-layer:nth-of-type(6) summary { color: var(--ink); }
+  .stack-layer:nth-of-type(5) .stack-layer-detail,
+  .stack-layer:nth-of-type(6) .stack-layer-detail { color: var(--ink); opacity: 0.8; }
+
+  .stack-layer summary {
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .stack-layer summary::-webkit-details-marker { display: none; }
+
+  .stack-layer-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.6;
+    flex-shrink: 0;
+    min-width: 24px;
+  }
+  .stack-layer-name {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+    min-width: 200px;
+  }
+  .stack-layer-desc {
+    opacity: 0.75;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .stack-layer-toggle {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    opacity: 0.5;
+  }
+  .stack-layer[open] .stack-layer-toggle { transform: rotate(45deg); opacity: 1; }
+
+  .stack-layer-detail {
+    padding: 0 20px 16px 60px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+  }
+
+  @media (max-width: 640px) {
+    .stack-layer summary { flex-wrap: wrap; gap: 8px; }
+    .stack-layer-name { min-width: auto; }
+    .stack-layer-desc { flex-basis: 100%; padding-left: 40px; }
+  }
+</style>

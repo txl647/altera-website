@@ -1,0 +1,151 @@
+<section class="operators" id="operators">
+  <div class="container">
+    <div class="section-label">06 / The Operators</div>
+    <h2 class="operators-quote">
+      We won't ask you to do anything we haven't done <span class="blue">10,000 times.</span>
+    </h2>
+
+    <div class="operators-attribution">
+      <div class="operators-avatars">
+        <div class="operators-avatar">MR</div>
+        <div class="operators-avatar">JN</div>
+        <div class="operators-avatar">AP</div>
+      </div>
+      <div class="operators-names">
+        <div class="operators-names-line">M. Rayhan, J. Nguyen, A. Patel · Founders</div>
+        <div class="operators-names-sub">12,000+ field hours combined</div>
+      </div>
+    </div>
+
+    <div class="operators-stats">
+      <div class="stat-item">
+        <div class="stat-num">12K+</div>
+        <div class="stat-label">Field hours (combined)</div>
+      </div>
+      <div class="stat-item middle">
+        <div class="stat-num">2.4K</div>
+        <div class="stat-label">Avg knocks per founder</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">9 yrs</div>
+        <div class="stat-label">Longest in the field</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .operators {
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .operators::before {
+    content: ""; position: absolute; top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px; border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.08;
+    filter: blur(100px);
+    pointer-events: none;
+  }
+  .operators :global(.section-label) { color: var(--blue); }
+
+  .operators-quote {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(36px, 5.5vw, 80px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    max-width: 1000px;
+    margin: 0 auto 56px;
+    position: relative;
+  }
+  .operators-quote .blue { color: var(--blue); }
+  .operators-quote::before {
+    content: "\201C";
+    font-size: 1.4em;
+    color: var(--blue);
+    opacity: 0.3;
+    position: absolute;
+    top: -0.15em; left: -0.4em;
+    line-height: 1;
+  }
+  .operators-quote::after {
+    content: "\201D";
+    font-size: 1.4em;
+    color: var(--blue);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .operators-attribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .operators-avatars { display: flex; flex-shrink: 0; }
+  .operators-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .operators-avatar:nth-child(1) {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    z-index: 3;
+  }
+  .operators-avatar:nth-child(2) {
+    background: linear-gradient(135deg, #5BC7FF, var(--blue));
+    margin-left: -14px; z-index: 2;
+  }
+  .operators-avatar:nth-child(3) {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue-deep));
+    margin-left: -14px; z-index: 1;
+    color: var(--white);
+  }
+  .operators-names { text-align: left; }
+  .operators-names-line { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+  .operators-names-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .operators-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    max-width: 680px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 28px;
+  }
+  .operators-stats :global(.stat-item) { text-align: center; }
+  .operators-stats :global(.stat-item.middle) {
+    border-right: 1px solid rgba(255,255,255,0.15);
+    border-left: 1px solid rgba(255,255,255,0.15);
+  }
+
+  @media (max-width: 640px) {
+    .operators-attribution { flex-direction: column; gap: 12px; }
+    .operators-names { text-align: center; }
+    .operators-stats { grid-template-columns: 1fr; gap: 20px; }
+    .operators-stats :global(.stat-item) {
+      border-right: none !important;
+      border-left: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding: 0 0 20px;
+    }
+    .operators-stats :global(.stat-item:last-child) { border-bottom: none; padding-bottom: 0; }
+  }
+</style>

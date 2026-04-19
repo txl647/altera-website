@@ -1,0 +1,130 @@
+---
+import { footerLogo } from '../lib/logo';
+
+const orgLinks = [
+  { label: 'The System', href: '#system' },
+  { label: 'The Path', href: '#path' },
+  { label: 'Voices', href: '#voices' },
+  { label: 'Apply', href: '#apply' },
+];
+const territoryLinks = ['Vaughan', 'Hamilton', 'Barrie', 'Oshawa', 'Markham', 'London'];
+const contactLinks = [
+  { label: 'careers@alteragroup.io', href: 'mailto:careers@alteragroup.io' },
+  { label: 'Instagram', href: '#' },
+  { label: 'LinkedIn', href: '#' },
+  { label: 'TikTok', href: '#' },
+];
+---
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo logo-footer" aria-label="Altera Acquisition Group">
+        <img src={footerLogo} alt="Altera" />
+      </a>
+      <h3>Where operators<br />are built<span class="dot">.</span></h3>
+      <p>Altera Acquisition Group is an Ontario-based direct-to-door field sales organization focused on home energy upgrades and operator-level career development.</p>
+    </div>
+    <div>
+      <h5>The Org</h5>
+      <ul>
+        {orgLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h5>Territories</h5>
+      <ul>
+        {territoryLinks.map((t) => <li><a href="#">{t}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        {contactLinks.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Altera Acquisition Group</div>
+    <div>Built in Ontario · v3.0</div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--ink);
+    color: var(--white);
+    padding: 100px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: ""; position: absolute;
+    right: -120px; bottom: -180px;
+    width: 640px; height: 640px;
+    background: radial-gradient(circle at center, rgba(56,182,255,0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .footer-grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 80px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .footer-brand { display: flex; flex-direction: column; }
+  .footer-brand .logo-footer {
+    margin-bottom: 44px;
+    align-self: flex-start;
+  }
+  .logo-footer img { height: 56px; display: block; }
+  .footer-brand h3 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(38px, 3.6vw, 54px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    max-width: 440px;
+  }
+  .footer-brand h3 .dot { color: var(--blue); }
+  .footer-brand p {
+    color: rgba(255,255,255,0.55);
+    font-size: 15px;
+    max-width: 420px;
+    line-height: 1.6;
+  }
+  footer h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--blue);
+    margin-bottom: 24px;
+    padding-top: 8px;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin-bottom: 12px; }
+  footer ul li a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  footer ul li a:hover { color: var(--blue); }
+  .footer-bottom {
+    max-width: 1400px; margin: 36px auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: rgba(255,255,255,0.35);
+    text-transform: uppercase; letter-spacing: 0.15em;
+    position: relative;
+  }
+  .logo { display: inline-flex; align-items: center; text-decoration: none; }
+
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 16px; }
+  }
+</style>

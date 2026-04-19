@@ -1,0 +1,58 @@
+<dialog class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-placeholder">Photo placeholder</div>
+  </div>
+</dialog>
+
+<style>
+  .lightbox {
+    border: none;
+    background: transparent;
+    max-width: 90vw;
+    max-height: 90vh;
+    padding: 0;
+  }
+  .lightbox::backdrop { background: rgba(0,0,0,0.85); }
+  .lightbox-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-placeholder {
+    width: 60vw; height: 60vh;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(56,182,255,0.3), rgba(10,58,92,0.6));
+    border-radius: 4px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -40px; right: 0;
+    background: none; border: none;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  .lightbox-close:hover { opacity: 1; }
+</style>
+
+<script>
+  const lightbox = document.getElementById('lightbox') as HTMLDialogElement | null;
+  if (lightbox) {
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    closeBtn?.addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.close();
+    });
+  }
+</script>

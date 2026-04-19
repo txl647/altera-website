@@ -1,0 +1,59 @@
+<section class="final-cta" id="apply">
+  <h2>
+    <span>The door</span>
+    <span class="outline">is open.</span>
+  </h2>
+  <p>Ontario's operator-first field sales org is hiring across 6 territories. Short application, fast decision.</p>
+  <a href="#" class="btn-primary">Apply to Altera <span class="arrow">→</span></a>
+</section>
+
+<style>
+  .final-cta {
+    background: var(--blue);
+    color: var(--ink);
+    padding: 140px 40px 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before, .final-cta::after {
+    content: ""; position: absolute;
+    background: var(--ink);
+    transform: skewX(-12deg);
+    top: -10%; bottom: -10%;
+    width: 4px;
+  }
+  .final-cta::before { left: 15%; }
+  .final-cta::after { right: 15%; }
+  .final-cta h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(56px, 10vw, 180px);
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .final-cta .outline {
+    color: transparent;
+    display: block;
+    text-shadow:
+      -2px -2px 0 var(--ink),
+       2px -2px 0 var(--ink),
+      -2px  2px 0 var(--ink),
+       2px  2px 0 var(--ink),
+      -2px  0   0 var(--ink),
+       2px  0   0 var(--ink),
+       0   -2px 0 var(--ink),
+       0    2px 0 var(--ink);
+  }
+  .final-cta p {
+    font-size: 20px; font-weight: 500; max-width: 640px;
+    margin: 0 auto 48px; line-height: 1.4;
+  }
+  .final-cta :global(.btn-primary) {
+    background: var(--ink); color: var(--blue);
+    padding: 22px 44px; font-size: 16px;
+  }
+  .final-cta :global(.btn-primary:hover) { background: var(--white); color: var(--ink); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+</style>

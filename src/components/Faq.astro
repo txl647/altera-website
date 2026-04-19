@@ -1,0 +1,95 @@
+---
+const faqs = [
+  {
+    q: 'Is this commission-only?',
+    a: 'Yes. Entry-level field roles are 100% commission with weekly bonuses and performance tiers. Uncapped upside. Once you move into leadership tracks, compensation shifts to include overrides, base components, and eventually equity conversations for territory-level operators.',
+  },
+  {
+    q: 'What am I actually selling?',
+    a: "Home energy upgrades — heat pumps, smart thermostats, and utility-rebate-eligible equipment under Ontario Home Savings programs. You're helping homeowners lower their bills using manufacturer and provincial incentives. It's a category people actually want to hear about.",
+  },
+  {
+    q: 'Do I need sales experience?',
+    a: 'No. Most of our top operators came in with zero sales background. What you need is a willingness to be coached, a high work rate for 90 days, and a clean presentation. We handle the training.',
+  },
+  {
+    q: 'How fast can I get promoted?',
+    a: 'Our fastest promotions to Field Lead have been around 5 months. There are three defined gates between Rep and Territory Owner. None of them are political. If you hit the numbers and can teach the system to someone else, the next rung is yours.',
+  },
+  {
+    q: 'What does a typical day look like?',
+    a: 'Morning sales huddle and script drill (9:30–11:00), field time with your trainer or crew (11:30–7:30), and a short end-of-day debrief. You own your numbers and your development plan. We own the routing, the leads, and the structure.',
+  },
+  {
+    q: 'Is this the same as every other D2D company?',
+    a: "No. Altera is operator-led, not rep-led. That means the owners are in the field, the infrastructure is real (CRM, dispatch, call center support, defined territories), and the path to leadership is structural, not rhetorical. We'd rather lose the rep who only wants a quick score than fake a career ladder.",
+  },
+];
+---
+
+<section class="faq">
+  <div class="container">
+    <div class="section-label">09 / The Questions</div>
+    <h2 class="section-headline">Fair questions.<br /><span class="blue">Direct answers.</span></h2>
+
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <div class="faq-item">
+          <div class="faq-q">{item.q} <span class="faq-toggle">+</span></div>
+          <div class="faq-a"><p>{item.a}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq { background: var(--white); }
+  .faq-list { max-width: 860px; margin: 48px auto 0; }
+  .faq-item {
+    border-bottom: 2px solid var(--ink);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .faq-item:first-child { border-top: 2px solid var(--ink); }
+  .faq-q {
+    padding: 28px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .faq-toggle {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--ink); color: var(--blue);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-weight: 900;
+    font-size: 18px; flex-shrink: 0; margin-left: 20px;
+    transition: all 0.3s ease;
+  }
+  .faq-item.open .faq-toggle { background: var(--blue); color: var(--ink); transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding-bottom: 28px;
+  }
+  .faq-a p {
+    font-size: 16px; line-height: 1.6; color: var(--gray-500);
+    max-width: 720px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
